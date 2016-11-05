@@ -1,9 +1,50 @@
+<!doctype html>
+
 <html>
 	<head>
-		<title>ThreeJS</title>
+		<meta charset="utf-8">
+		<title>WebVR Dodgeball</title>
 	</head>
 	<body>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r81/three.min.js"></script>
-		<script src="three-lesson.js"></script>
+		<a-scene>
+			<a-assets>
+				<img id="dirt" src="dirt.jpg">
+				<img id="wood" src="wood.jpg">
+				<img id="sky" src="sky.jpg">
+		  </a-assets>
+
+			<!-- <a-sky color="#73F7DD"></a-sky> -->
+			<a-sky src="#sky"></a-sky>
+			<!-- <a-sun-sky></a-sun-sky> -->
+
+			<a-plane src="#dirt" height="100" width="100" rotation="-90 0 0"></a-plane>
+
+		  <a-box color="#FFF" width="4" height="10" depth="2" position="-10 2 -5" rotation="0 0 45" scale="2 0.5 3" src="#wood">
+		    <a-animation attribute="rotation" begin="click" repeat="0" to="0 360 0"></a-animation>
+		    <!-- <a-event name="mouseenter" scale="4 1 6"></a-event> -->
+		  </a-box>
+
+			<!-- <a-entity id="monster" geometry="primitive: box" material="src: url(monster.png)" look-at="[camera]"></a-entity>
+			<a-entity id="player" camera></a-entity>
+			<a-entity id="dog" geometry="primitive: box" material="src: url(dog.png)" look-at="#squirrel"></a-entity>
+			<a-entity id="squirrel">
+				<a-animation id="running" attribute="position" to="100 0 0"></a-animation>
+			</a-entity> -->
+
+			<!-- <a-box color="green" event-set__1="_event: click; material.color: red; scale: 2 2 2" event-set__2="_event: mouseenter; material.color: blue"></a-box> -->
+
+		  <a-light type="spot" color="#333" position="-20 0 0" look-at="a-box"></a-light>
+		  <a-light type="point" color="#AAA" position="0 5 0"></a-light>
+
+		  <a-camera userHeight="10.6">
+		    <a-cursor color="#2E3A87">
+		  </a-camera>
+		</a-scene>
+
+		<script src="https://aframe.io/releases/0.3.2/aframe.js"></script>
+		<script src="https://rawgit.com/ngokevin/aframe-event-set-component/master/dist/aframe-event-set-component.min.js"></script>
+		<script src="https://rawgit.com/ngokevin/aframe-look-at-component/master/dist/aframe-look-at-component.min.js"></script>
+		<script src="https://rawgit.com/ngokevin/kframe/tree/master/components/sun-sky/dist/aframe-sun-sky.min.js"></script>
+		<script src="dodgeball.js"></script>
 	</body>
 </html>
