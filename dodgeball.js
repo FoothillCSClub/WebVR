@@ -9,3 +9,12 @@ AFRAME.registerComponent('scale-on-click', {
 		});
 	}
 });
+
+var qs = document.querySelector.bind( document );
+
+document.querySelector( 'a-assets' ).addEventListener( 'loaded', () => console.log( 'a-assets loaded' ) );
+document.querySelector( 'a-assets' ).addEventListener( 'timeout', () => console.log( 'a-assets timed out' ) );
+
+console.log( document.querySelector( '#dirt' ) );
+document.querySelector( '#dirt' ).addEventListener( 'load', () => console.log( 'dirt loaded' ) );
+// document.querySelector( '#goats' ).addEventListener( 'load', function () { console.log( 'goats loaded' ) } );
