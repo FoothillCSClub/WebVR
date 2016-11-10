@@ -19,7 +19,7 @@ var skyTexture = skyLoader.load( [
 	'pz.png', 'nz.png'
 ] );
 
-var skyMaterial = new THREE.MeshBasicMaterial( { color: 0xffffff, envMap: textureCube } );
+var skyMaterial = new THREE.MeshBasicMaterial( { color: 0xffffff, envMap: skyTexture } );
 
 // position, rotation, scale
 // THREE.Vector3( x, y, z );
@@ -31,20 +31,20 @@ var skyMaterial = new THREE.MeshBasicMaterial( { color: 0xffffff, envMap: textur
 init();
 
 function init() {
-	const woodTexture = loader.load( 'https://raw.githubusercontent.com/jbjw/threejs-lesson/master/wood.jpg' );
+	const woodTexture = loader.load( 'images/wood.jpg' );
 	woodTexture.anisotropy = renderer.getMaxAnisotropy()
 	woodTexture.wrapS = THREE.RepeatWrapping; woodTexture.wrapT = THREE.RepeatWrapping;
 	const woodMaterial = new THREE.MeshBasicMaterial( { map: woodTexture } );
 
-	const dirtTexture = loader.load( 'https://raw.githubusercontent.com/jbjw/threejs-lesson/master/dirt.jpg' );
+	const dirtTexture = loader.load( 'images/dirt.jpg' );
 	dirtTexture.anisotropy = renderer.getMaxAnisotropy()
 	dirtTexture.wrapS = THREE.RepeatWrapping; dirtTexture.wrapT = THREE.RepeatWrapping;
 	const dirtMaterial = new THREE.MeshBasicMaterial( { map: dirtTexture } );
-	const dirtPlaneMaterial = new THREE.MeshBasicMaterial( { map: dirtTexture, side: THREE.DoubleSide} );
+	const dirtPlaneMaterial = new THREE.MeshBasicMaterial( { map: dirtTexture, side: THREE.DoubleSide } );
 
 	const wireframeMaterial = new THREE.MeshBasicMaterial( { color: 0x00ff00, wireframe: true } );
 
-	const boxGeometry = new THREE.BoxGeometry( 5, 5, 5, );
+	const boxGeometry = new THREE.BoxGeometry( 5, 5, 5 );
 	let cube = new THREE.Mesh( boxGeometry, woodMaterial );
 	cube.position.z = 5;
 	scene.add( cube );
