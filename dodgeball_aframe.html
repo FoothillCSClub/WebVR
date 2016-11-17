@@ -21,6 +21,9 @@
 				<a-asset-item id="crate-obj" src="models/crate.obj"></a-asset-item>
 				<a-asset-item id="crate-mtl" src="models/crate.mtl"></a-asset-item>
 
+				<a-asset-item id="axe-obj" src="models/axe.obj"></a-asset-item>
+				<a-asset-item id="axe-mtl" src="models/axe.mtl"></a-asset-item>
+
 				<img id="dirt" src="images/dirt.jpg">
 				<img id="sunflower" src="images/sunflower.jpg" onload="console.log(&quot;sunflower&quot;)">
 				<img id="wood" src="images/wood.jpg" onload="console.log(&quot;wood&quot;)">
@@ -43,7 +46,10 @@
 			<a-plane src="#dirt" height="100" width="100" rotation="-90 0 0"></a-plane>
 
 			<!-- axe -->
-			<a-entity obj-model="obj: url(models/axe.obj)"></a-entity>
+			<a-entity id="axe" obj-model="obj: #axe-obj; mtl: #axe-mtl"></a-entity>
+
+			<!-- crate -->
+			<a-entity id="crate" obj-model="obj: #crate-obj; mtl: #crate-mtl"></a-entity>
 
 			<!-- wood object -->
 			<a-box src="#wood" color="#FFF" width="4" height="10" depth="2" position="-10 2 -5" rotation="0 0 45" scale="2 0.5 3" >
