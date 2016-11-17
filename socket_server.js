@@ -7,9 +7,9 @@ var app = express();
 
 const port = 4080;
 
-app.use( function ( request, response ) {
-	response.send( { message: "hello" } );
-} );
+// app.use( function ( request, response ) {
+// 	response.send( { message: "hello" } );
+// } );
 
 wsServer.on('connection', function connection( socket ) {
 	var location = url.parse( socket.upgradeReq.url, true );
