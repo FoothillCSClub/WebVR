@@ -3,24 +3,24 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Dodgeball A-Frame</title>
+		<title>Dodgeball in A-Frame</title>
 
-		<script src="https://aframe.io/releases/0.3.2/aframe.js"></script>
+		<script src="//aframe.io/releases/0.3.2/aframe.js"></script>
 
-		<script src="https://rawgit.com/ngokevin/aframe-physics-components/master/dist/aframe-physics-components.js"></script
-
-		<script src="https://rawgit.com/ngokevin/kframe/master/components/event-set/dist/aframe-event-set-component.js"></script>
-		<script src="https://rawgit.com/ngokevin/kframe/master/components/look-at/dist/aframe-look-at-component.js"></script>
-		<script src="https://rawgit.com/ngokevin/kframe/master/components/sun-sky/dist/aframe-sun-sky.js"></script>
+		<script src="//rawgit.com/donmccurdy/aframe-physics-system/master/dist/aframe-physics-system.js"></script>
+		<!-- <script src="https://rawgit.com/ngokevin/aframe-physics-components/master/dist/aframe-physics-components.js"></script> -->
+		<script src="//rawgit.com/ngokevin/kframe/master/components/event-set/dist/aframe-event-set-component.js"></script>
+		<script src="//rawgit.com/ngokevin/kframe/master/components/look-at/dist/aframe-look-at-component.js"></script>
+		<script src="//rawgit.com/ngokevin/kframe/master/components/sun-sky/dist/aframe-sun-sky.js"></script>
 
 		<script src="dodgeball_aframe.js"></script>
 	</head>
 	<body>
-		<a-scene stats vr-mode-ui="enabled: true" physics-world="gravity: 0 -9.8 0">
+		<!-- <a-scene stats vr-mode-ui="enabled: true" physics-world="gravity: 0 -9.8 0"> -->
+		<a-scene stats vr-mode-ui="enabled: true">
 			<a-assets timeout="5000">
 				<a-asset-item id="axe-obj" src="models/axe.obj"></a-asset-item>
 				<a-asset-item id="axe-mtl" src="models/axe.mtl"></a-asset-item>
-
 				<a-asset-item id="crate-obj" src="models/crate.obj"></a-asset-item>
 				<a-asset-item id="crate-mtl" src="models/crate.mtl"></a-asset-item>
 
@@ -42,27 +42,28 @@
 			<a-sun-sky></a-sun-sky>
 
 			<!-- ball -->
-			<a-sphere color="yellow" radius="1" position="15 0 0" physics-body="mass: 1; boundingBox: 1 1 1"></a-sphere>
+			<!-- <a-sphere color="yellow" radius="1" position="15 0 0" physics-body="mass: 1; boundingBox: 1 1 1"></a-sphere> -->
+			<a-sphere dynamic-body="shape: sphere; sphereRadius: 1; mass: 2" color="yellow" radius="1" position="15 0 0" ></a-sphere>
 
 			<!-- ground plane -->
 			<!-- <a-plane src="#dirt" height="100" width="100" rotation="-90 0 0" position="0 -10 0"></a-plane> -->
-			<a-box src="#dirt" scale="100 1 100" rotation="-90 0 0" position="0 -2 0" physics-body="mass: 0; boundingBox: 100 2 100"></a-box>
+			<!-- <a-box src="#dirt" scale="100 1 100" rotation="-90 0 0" position="0 -2 0" physics-body="mass: 0; boundingBox: 100 2 100"></a-box> -->
+			<a-box static-body="shape: box; mass: 2" src="#dirt" scale="100 1 100" rotation="-90 0 0" position="0 -2 0"></a-box>
 
 			<!-- <a-entity id="ground" geometry="primitive: box; depth: 50; height: 0.1; width: 50" material="color: #2E3837" physics-body="mass: 0; boundingBox: 50 0.1 50" position="0 0 -10"></a-entity> -->
 			<!-- physics-body="mass: 0; boundingBox: 100 0.1 100" -->
 
-
 			<!-- axe -->
-			<a-entity id="axe" obj-model="obj: #axe-obj; mtl: #axe-mtl" position="0 2 -3">
-				<a-animation attribute="rotation" begin="click" repeat="0" to="0 360 0"></a-animation>
-				<a-animation attribute="rotation" dur="1000" fill="forward" to="10 360 0" repeat="indefinite"></a-animation>
+			<a-entity id="axe" static-body="shape: box; mass: 2" id="axe" obj-model="obj: #axe-obj; mtl: #axe-mtl" position="0 2 -3">
+				<!-- <a-animation attribute="rotation" begin="click" repeat="0" to="0 360 0"></a-animation>
+				<a-animation attribute="rotation" dur="1000" fill="forward" to="10 360 0" repeat="indefinite"></a-animation> -->
 			</a-entity>
 
 			<!-- crate -->
-			<a-entity id="crate" obj-model="obj: #crate-obj; mtl: #crate-mtl" position="0 15 0" physics-body="boundingBox: 1 1 1; mass: 5; velocity: 0.2 0 0"></a-entity>
+			<a-entity id="crate" static-body="shape: box; mass: 2" id="crate" obj-model="obj: #crate-obj; mtl: #crate-mtl" position="0 15 0"></a-entity>
 
 			<!-- box (image textured) -->
-			<a-box src="#wood" color="#FFF" width="4" height="10" depth="2" position="-10 2 -5" rotation="0 0 45" scale="2 0.5 3">
+			<a-box id="box" static-body="shape: box; mass: 2" src="#wood" color="#FFF" width="4" height="10" depth="2" position="-10 2 -5" rotation="0 0 45" scale="2 0.5 3">
 			<!-- <a-animation attribute="rotation" begin="click" repeat="0" to="0 360 0"></a-animation> -->
 			<!-- <a-event name="mouseenter" scale="4 1 6"></a-event> -->
 			</a-box>
@@ -84,7 +85,9 @@ event-set__2="_event: mouseenter; material.color: blue"></a-box> -->
 			<!-- <a-light type="spot" color="#333" position="-20 0 0" look-at="a-box"></a-light>
 			<a-light type="point" color="#AAA" position="0 5 0"></a-light> -->
 
-			<a-entity id="player" camera look-controls wasd-physics-controls physics-body="mass: 100; boundingBox: 1 1.8 1" position="0 5 0"></a-entity>
+			<a-entity id="player" camera look-controls wasd-physics-controls>
+				<a-box id="player-box" static-body="shape: box; mass: 2" src="#wood" color="#FFF" position="0 20 0" rotation="0 0 0" scale="1 5 1">
+			</a-entity>
 
 			<!-- <a-camera>
 				<a-cursor color="#2E3A87">
