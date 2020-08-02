@@ -2,15 +2,15 @@
 Browser-based virtual reality project.
 
 ## Website
-https://foothillcsclub.github.io/webvr-dodgeball/
+https://foothillcs.club/webvr-dodgeball/
 
 ## Design doc
 https://drive.google.com/open?id=1GN9Iq_lpS4l1HF_-FolOtDobkFaGh2x3vDBmZsQqIa8
 
 ## Download
 
- - download [three.js](https://github.com/mrdoob/three.js/archive/master.zip)
- - install [node](https://nodejs.org/en/download/)
+ - Install [Node.js](https://nodejs.org/en/download/)
+ - Download [three.js](https://github.com/mrdoob/three.js/archive/master.zip)
 
 ## Getting started
 
@@ -32,7 +32,7 @@ https://drive.google.com/open?id=1GN9Iq_lpS4l1HF_-FolOtDobkFaGh2x3vDBmZsQqIa8
 * http://mrdoob.com/lab/javascript/threejs/css3d/periodictable/
 * http://planetmaker.wthr.us/
 
-> more awesome webvr resources -- https://github.com/wizztjh/awesome-WebVR
+> More awesome WebVR resources -- https://github.com/wizztjh/awesome-WebVR
 
 ## Stuff
 * https://cdnjs.cloudflare.com/ajax/libs/three.js/r81/three.min.js
